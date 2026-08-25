@@ -3,15 +3,44 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mi Ecommerce - Home</title>
+        <title>Mi Ecommerce - Login</title>
     </head>
 
     <body>
     <%- include('../partials/header') %>
+
         <main>
-            <h1>Bienvenido a Mi Ecommerce</h1>
-            <p> Inicia Sesion</p>
-             <p>Aqui ira el formulario para acceder a tu cuenta.</p>
-         </main>
+            <section class=" login-contenedor">
+             <h1>¡Hola!</h1>
+
+                  <!-- redirige a home al enviar el formulario-->
+                  <form action = "/" method = "GET">
+
+                      <!-- nombre de usuario -->
+                      <div class=" campo-formulario">
+                          <label for ="username">Nombre de usuario</label>
+                         <input type="text" name="username" id="username" placeholder="Tu nombre de usuario" required>
+                       </div>
+                 
+                      <!-- contraseña -->
+                      <div class=" campo-formulario">
+                          <label for ="password">Contraseña</label>
+                         <input type="password" name="password" id="password" placeholder="Tu contraseña" required>
+                      </div>
+
+                      <!-- botón de envío -->
+                         <button type="submit" >Iniciar Sesion</button>
+
+                     </form>
+                     <!-- Enlaces hacia otras páginas (Registro e Inicio) -->
+            <div class="enlaces-adicionales">
+                <p>¿No tienes cuenta? <a href="/register">Regístrate</a></p>
+                <!-- Enlace explícito al inicio para cumplir estrictamente la validación -->
+                <p><a href="/">Volver a la página de inicio</a></p>
+            </div>
+            </section>
+           
+        </main>
            <%- include('../partials/footer') %>
     </body>
+</html>
