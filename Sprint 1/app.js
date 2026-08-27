@@ -28,8 +28,14 @@ app.get('/register', (req, res) => {
 });
 
 // Detalle de Producto
+// Ruta normal del producto
+app.get('/product', (req, res) => {
+    res.render('pages/product', { error: false });
+});
+
+// Ruta en plural (para que funcionen los enlaces del Inicio)
 app.get('/products', (req, res) => {
-    res.render('pages/product');
+    res.render('pages/product', { error: false });
 });
 
 // Carrito de compras

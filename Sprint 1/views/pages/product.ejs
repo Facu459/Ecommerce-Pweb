@@ -1,16 +1,91 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mi Ecommerce - Home</title>
-    </head>
+<%- include('../partials/header') %>
 
-    <body>
-    <%- include('../partials/header') %>
-        <main>
-            <h1>Detalles del Producto</h1>
-             <p>Aqui ira una foto del producto.</p>
-         </main>
-              <%- include('../partials/footer') %>
-    </body>
+<main class="product-main">
+
+    <% if (error) { %>
+        <!-- ========================================== -->
+        <!-- BONUS 1 y 2: ESTADO DE ERROR (NO ENCONTRADO) -->
+        <!-- ========================================== -->
+        <section class="error-not-found">
+            <h1>¡Ups! Producto no encontrado</h1>
+            <p>Parece que el artículo que buscas no existe o fue retirado de nuestro catálogo.</p>
+            <a href="/" class="btn-outline">Volver a la página principal</a>
+        </section>
+
+        <!-- BONUS 2: Productos sugeridos para no perder la venta -->
+        <section class="products-section" aria-label="Productos sugeridos">
+            <h2>Quizás te interesen estos productos</h2>
+            <div class="products-grid">
+                <article class="product-card">
+                    <a href="/product">
+                        <img src="/img/prod-auriculares.jpg" alt="Auriculares">
+                        <h3>Auriculares Inalámbricos</h3>
+                        <p class="price-points">1500 pts</p>
+                    </a>
+                </article>
+                <!-- Agrega más tarjetas aquí para que se vea como en el inicio -->
+            </div>
+        </section>
+
+    <% } else { %>
+        <!-- ========================================== -->
+        <!-- ESTADO NORMAL: PRODUCTO ENCONTRADO         -->
+        <!-- ========================================== -->
+        
+        <!-- BONUS 4: Listado de categorías superior -->
+        <nav class="categories-nav" aria-label="Categorías principales">
+            <ul class="categories-list">
+                <li><a href="/category/electronica">Electrónica</a></li>
+                <li><a href="/category/alimentos">Alimentos</a></li>
+                <li><a href="/category/bebidas">Bebidas</a></li>
+            </ul>
+        </nav>
+
+        <!-- Requisitos principales: Detalles del producto -->
+        <section class="product-details-layout">
+            <!-- Imágenes -->
+            <div class="product-gallery">
+                <img src="/img/jack-daniels.jpg" alt="Jack Daniel's Tennessee Honey Botella 750 mL" class="main-image">
+            </div>
+            
+            <!-- Info y compra -->
+            <div class="product-info">
+                <h1>Jack Daniel's Tennessee Honey Botella 750 mL</h1>
+                <p class="description">
+                    Disfruta del sabor único de Jack Daniel's mezclado con un toque de miel. 
+                    Ideal para tomar solo, con hielo o en tus cócteles favoritos.
+                </p>
+                <p class="price">19.900 pts</p>
+                
+                <!-- Botón agregar al carrito -->
+                <form action="/cart" method="GET">
+                    <button type="submit" class="btn-primary">Agregar al Carrito 🛒</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- BONUS 3: Productos Relacionados -->
+        <section class="products-section" aria-label="Productos similares">
+            <h2>Productos Relacionados</h2>
+            <div class="products-grid">
+                <article class="product-card">
+                    <a href="/product">
+                        <img src="/img/combo.jpg" alt="Combo Hamburguesa">
+                        <h3>1 Combo Hamburguesa</h3>
+                        <p class="price-points">5.000 pts</p>
+                    </a>
+                </article>
+                <article class="product-card">
+                    <a href="/product">
+                        <img src="/img/coca.jpg" alt="Coca Cola">
+                        <h3>Coca Cola Lata 220mL x8</h3>
+                        <p class="price-points">1.520 pts</p>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+    <% } %>
+</main>
+
+<%- include('../partials/footer') %>
