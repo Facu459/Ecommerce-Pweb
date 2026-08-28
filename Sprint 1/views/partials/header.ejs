@@ -1,12 +1,115 @@
-<header>
-    <nav>   
-        <ul>   
-            <li> <a href="/">Home</a></li>    
-            <li> <a href="/products">Productos</a></li>
-            <li> <a href="/cart">Carrito</a></li>
-            <li> <a href="/checkout">Checkout</a></li>
-            <li> <a href="/login">Login</a></li>
-            <li> <a href="/register">Register</a></li>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Efecto Glassmorphism fijo en la parte superior */
+    .site-header {
+        font-family: 'Poppins', sans-serif;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        padding: 15px 30px;
+    }
+
+    .main-nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between; /* Separa el logo de los enlaces */
+        align-items: center;
+    }
+
+    /* Estilo para el Logo "Mi ecommerce" */
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: #2d3436;
+        letter-spacing: -0.5px;
+    }
+
+    .logo span {
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-list li {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Estilos de los enlaces */
+    .nav-list a {
+        text-decoration: none;
+        color: #2d3436;
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    /* Efecto hover: fondo sutil y color de texto */
+    .nav-list a:hover {
+        color: #6c5ce7;
+        background: rgba(108, 92, 231, 0.05);
+    }
+
+    /* Resaltar Login y Register como botones */
+    .nav-list a[href="/login"],
+    .nav-list a[href="/register"] {
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        color: #fff;
+        padding: 8px 20px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(108, 92, 231, 0.2);
+    }
+
+    .nav-list a[href="/login"]:hover,
+    .nav-list a[href="/register"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    }
+
+    /* Responsividad */
+    @media (max-width: 900px) {
+        .main-nav {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .nav-list {
+            justify-content: center;
+        }
+    }
+</style>
+
+<header class="site-header">
+    <nav class="main-nav">
+        <!-- Logotipo agregado -->
+        <a href="/" class="logo">Mi <span>Ecommerce</span></a>
+        
+        <ul class="nav-list">   
+            <li><a href="/">Home</a></li>    
+            <li><a href="/products">Productos</a></li>
+            <li><a href="/cart">Carrito</a></li>
+            <li><a href="/checkout">Checkout</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
         </ul>
     </nav>
 </header>
