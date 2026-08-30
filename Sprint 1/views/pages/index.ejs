@@ -9,8 +9,75 @@
     <body>
     <%- include('../partials/header') %>
         <main>
-            <h1>Bienvenido a Mi Ecommerce</h1>
-             <p>¡Explora nuestra web utilizando el menu!.</p>
+            <nav class="menu-categorias">
+             <ul>
+                    <li><a href="#">Electrónica</a></li>
+                    <li><a href="#">Alimentos</a></li>
+                    <li><a href="#">Bebidas</a></li>
+                    <li><a href="#">Indumentaria</a></li>
+                    <li><a href="#">Juegos</a></li>
+                    <li><a href="#">Automotor</a></li>
+                    <li><a href="#">Hogar</a></li>
+                    <li><a href="#">Otros</a></li>
+                </ul>
+            </nav>
+
+            <section class= "banners">   
+                <article>   
+                    <h3> 50% OFF en Combo Plus </h3>
+                     <p> Canjeando 50.000 puntos MiEcommerce</p>
+                </article>
+                <article>   
+                    <h3> 50% OFF en HBO MAX </h3>
+                     <p> Canjeando 50.000 puntos MiEcommerce</p>
+                </article>
+            </section>
+
+            <section class="listado">
+             <h2>Te puede interesar</h2>
+    
+                 <!-- Iniciamos el bucle para crear 4 productos idénticos -->
+                 <% for(let i = 0; i < 4; i++) { %>
+                 <article>
+                         <a href="/products">
+                         <img src="https://via.placeholder.com/200" alt="Imagen de prueba del producto">
+                          <h4>Nombre del Producto</h4>
+                         <p>xxxxx Puntos</p>
+                        </a>
+                 </article>
+              <% } %>
+    
+            </section>
+
+                 <section class="listado">
+                    <h2>Los más pedidos</h2>
+        
+                        <!-- Iniciamos el bucle para crear 4 productos idénticos -->
+                        <% for(let i = 0; i < 8; i++) { %>
+                        <article>
+                                <a href="/products">
+                                <img src="https://via.placeholder.com/200" alt="Imagen de prueba del producto">
+                                 <h4>Nombre del Producto</h4>
+                                <p>xxxxx Puntos</p>
+                               </a>
+                        </article>
+                     <% } %>
+            
+                 </section>
+
+                 <nav class="menu-categorias">
+             <ul>
+                    <li><a href="#">Electrónica</a></li>
+                    <li><a href="#">Alimentos</a></li>
+                    <li><a href="#">Bebidas</a></li>
+                    <li><a href="#">Indumentaria</a></li>
+                    <li><a href="#">Juegos</a></li>
+                    <li><a href="#">Automotor</a></li>
+                    <li><a href="#">Hogar</a></li>
+                    <li><a href="#">Otros</a></li>
+                </ul>
+            </nav>
+
          </main>
            <%- include('../partials/footer') %>
     </body>
