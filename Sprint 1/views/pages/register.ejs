@@ -4,161 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Ecommerce - Registro</title>
-    <!-- Importamos una fuente moderna -->
+    <!-- Importamos la fuente Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Vinculamos nuestro CSS externo -->
+    <link rel="stylesheet" href="/css/styles.css">
     
-    <style>
-        /* Fondo con gradiente en movimiento y fuente */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Contenedor principal centrado */
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        /* Estilo de la tarjeta de registro - Glassmorphism */
-        .registro-contenedor {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(15px); /* Efecto cristal */
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            padding: 50px 40px;
-            border-radius: 24px; /* Bordes más redondeados */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            width: 100%;
-            max-width: 380px;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        /* Título con gradiente */
-        .registro-contenedor h1 {
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 35px;
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Contenedor relativo para Floating Labels */
-        .campo-formulario {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        /* Inputs modernos (solo línea inferior) */
-        .campo-formulario input {
-            width: 100%;
-            padding: 10px 0;
-            font-size: 1rem;
-            color: #333;
-            border: none;
-            border-bottom: 2px solid #d1d5db;
-            background: transparent;
-            outline: none;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        /* Efecto de foco en el input */
-        .campo-formulario input:focus {
-            border-bottom: 2px solid #6c5ce7;
-        }
-
-        /* Etiqueta flotante por defecto */
-        .campo-formulario label {
-            position: absolute;
-            top: 10px;
-            left: 0;
-            font-size: 1rem;
-            color: #9ca3af;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-
-        /* Magia: Sube la etiqueta si está enfocada o tiene texto */
-        .campo-formulario input:focus ~ label,
-        .campo-formulario input:not(:placeholder-shown) ~ label {
-            top: -15px;
-            font-size: 0.8rem;
-            color: #6c5ce7;
-            font-weight: 600;
-        }
-
-        /* Botón de envío súper moderno */
-        button[type="submit"] {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-            color: #ffffff;
-            border: none;
-            border-radius: 50px; /* Botón tipo píldora */
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
-        }
-
-        button[type="submit"]:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(108, 92, 231, 0.5);
-        }
-
-        button[type="submit"]:active {
-            transform: translateY(1px);
-        }
-
-        /* Enlaces inferiores */
-        .enlaces-adicionales {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #6b7280;
-        }
-
-        .enlaces-adicionales p {
-            margin: 10px 0;
-        }
-
-        .enlaces-adicionales a {
-            color: #6c5ce7;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .enlaces-adicionales a:hover {
-            color: #4834d4;
-        }
-
-        /* Animación de entrada */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
 </head>
 
 <body>
     <%- include('../partials/header') %>
     
-    <main>
+    <main class="main-centrado">
         <section class="registro-contenedor">
             <h1>Registro</h1>
             
