@@ -9,54 +9,52 @@
     <body>
     <%- include('../partials/header') %>
         <main>
-            <nav class="menu-categorias">
-             <ul>
-                    <li><a href="#">Electrónica</a></li>
-                    <li><a href="#">Alimentos</a></li>
-                    <li><a href="#">Bebidas</a></li>
-                    <li><a href="#">Indumentaria</a></li>
-                    <li><a href="#">Juegos</a></li>
-                    <li><a href="#">Automotor</a></li>
-                    <li><a href="#">Hogar</a></li>
-                    <li><a href="#">Otros</a></li>
-                </ul>
-            </nav>
+            
+             <%- include('../partials/categories') %>
 
             <section class= "banners">   
-                <article>   
+                <article class="banner-disney">   
                     <h3> 50% OFF en Combo Plus </h3>
                      <p> Canjeando 50.000 puntos MiEcommerce</p>
                 </article>
-                <article>   
+                <article class="banner-hbo">   
                     <h3> 50% OFF en HBO MAX </h3>
                      <p> Canjeando 50.000 puntos MiEcommerce</p>
                 </article>
             </section>
 
             <section class="listado">
-             <h2>Te puede interesar</h2>
+    <h2>Te puede interesar</h2>
     
-                 <!-- Iniciamos el bucle para crear 4 productos idénticos -->
-                 <% for(let i = 0; i < 4; i++) { %>
-                 <article>
-                         <a href="/products">
-                         <img src="https://via.placeholder.com/200" alt="Imagen de prueba del producto">
-                          <h4>Nombre del Producto</h4>
-                         <p>xxxxx Puntos</p>
-                        </a>
-                 </article>
-              <% } %>
-    
-            </section>
+    <!-- 1. Tu producto específico -->
+    <article>
+        <a href="/product">
+            <img src="/img/jack-daniels.webp" alt="Whiskey Jack Daniels Honey 750ml">
+            <h4>Whiskey Jack Daniels Honey 750ml</h4>
+            <p>19.900 Puntos</p>
+        </a>
+    </article>
+
+    <!-- 2. Los 3 productos genéricos restantes para completar la fila -->
+    <% for(let i = 0; i < 3; i++) { %>
+    <article>
+        <a href="/product">
+            <img src="/img/cuadricula.webp" alt="Imagen de prueba del producto">
+            <h4>Nombre del Producto</h4>
+            <p>xxxxx Puntos</p>
+        </a>
+    </article>
+    <% } %>
+</section>
 
                  <section class="listado">
                     <h2>Los más pedidos</h2>
         
-                        <!-- Iniciamos el bucle para crear 4 productos idénticos -->
+                       
                         <% for(let i = 0; i < 8; i++) { %>
                         <article>
-                                <a href="/products">
-                                <img src="https://via.placeholder.com/200" alt="Imagen de prueba del producto">
+                                <a href="/product">
+                                <img src="/img/cuadricula.webp" alt="Imagen de prueba del producto">
                                  <h4>Nombre del Producto</h4>
                                 <p>xxxxx Puntos</p>
                                </a>
@@ -65,18 +63,7 @@
             
                  </section>
 
-                 <nav class="menu-categorias">
-             <ul>
-                    <li><a href="#">Electrónica</a></li>
-                    <li><a href="#">Alimentos</a></li>
-                    <li><a href="#">Bebidas</a></li>
-                    <li><a href="#">Indumentaria</a></li>
-                    <li><a href="#">Juegos</a></li>
-                    <li><a href="#">Automotor</a></li>
-                    <li><a href="#">Hogar</a></li>
-                    <li><a href="#">Otros</a></li>
-                </ul>
-            </nav>
+                  <%- include('../partials/categories') %>
 
          </main>
            <%- include('../partials/footer') %>

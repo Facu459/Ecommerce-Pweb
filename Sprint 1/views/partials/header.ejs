@@ -2,6 +2,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Vinculamos nuestro CSS externo -->
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 <header class="site-header">
@@ -16,6 +17,38 @@
             <li><a href="/checkout">Checkout</a></li>
             <li><a href="/login">Login</a></li>
             <li><a href="/register">Register</a></li>
+
+            <!-- Ocultamos los botones viejos si el usuario está "logeado" (mostrando el menú) -->
+        <% if (typeof hideMenu !== 'undefined' && hideMenu) { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        <% } else { %>
+            <!-- Menú de Usuario -->
+            <li class="user-menu-container">
+                <div class="user-menu-trigger">
+                    <img src="/img/avatar.png" alt="Perfil" class="avatar-trigger">
+                </div>
+                
+                <div class="user-dropdown">
+                    <div class="dropdown-header">
+                        <img src="/img/avatar.png" alt="Usuario" class="avatar-large">
+                        <span class="dropdown-name">Usuario</span>
+                    </div>
+                    <hr>
+                    <ul class="dropdown-links">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="#">Mis Compras</a></li>
+                        <li><a href="#">Favoritos</a></li>
+                        <li><a href="#">Historial</a></li>
+                    </ul>
+                    <hr>
+                    <div class="dropdown-footer">
+                        <span class="icon-theme">⚙️</span>
+                        <a href="#">Cambiar a Tema Claro</a>
+                    </div>
+                </div>
+            </li>
+        <% } %>
         </ul>
     </nav>
 </header>

@@ -46,12 +46,12 @@
             <!-- Galería de Imágenes -->
             <div class="product-gallery">
                 <div class="galeria-miniaturas">
-                    <img src="https://via.placeholder.com/80" alt="Miniatura 1">
-                    <img src="https://via.placeholder.com/80" alt="Miniatura 2">
-                    <img src="https://via.placeholder.com/80" alt="Miniatura 3">
+                    <img src="/img/jack-daniels.webp" alt="Miniatura 1">
+                    <img src="/img/jack-daniels.webp" alt="Miniatura 2">
+                    <img src="/img/jack-daniels.webp" alt="Miniatura 3">
                 </div>
                 <div class="galeria-principal">
-                    <img src="https://via.placeholder.com/400" alt="Imagen principal del producto" class="main-image">
+                    <img src="/img/jack-daniels.webp" alt="Imagen principal del producto" class="main-image">
                 </div>
             </div>
             
@@ -86,14 +86,14 @@
             <div class="products-grid">
                 <article class="product-card">
                     <a href="/product">
-                        <img src="/img/combo.jpg" alt="Combo Hamburguesa">
+                        <img src="/img/burguer.webp" alt="Combo Hamburguesa">
                         <h3>1 Combo Hamburguesa</h3>
                         <p class="price-points">5.000 pts</p>
                     </a>
                 </article>
                 <article class="product-card">
                     <a href="/product">
-                        <img src="/img/coca.jpg" alt="Coca Cola">
+                        <img src="/img/coca.webp" alt="Coca Cola">
                         <h3>Coca Cola Lata 220mL x8</h3>
                         <p class="price-points">1.520 pts</p>
                     </a>
@@ -102,18 +102,7 @@
         </section>
 
         <!-- BONUS 4: Listado de Categorías Inferior -->
-        <nav class="menu-categorias">
-            <ul>
-                <li><a href="#">Electrónica</a></li>
-                <li><a href="#">Alimentos</a></li>
-                <li><a href="#">Bebidas</a></li>
-                <li><a href="#">Indumentaria</a></li>
-                <li><a href="#">Juegos</a></li>
-                <li><a href="#">Automotor</a></li>
-                <li><a href="#">Hogar</a></li>
-                <li><a href="#">Otros</a></li>
-            </ul>
-        </nav>
+         <%- include('../partials/categories') %>
 
     <% } %>
 </main>
