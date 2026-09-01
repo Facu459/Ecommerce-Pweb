@@ -12,13 +12,14 @@
 </head>
 
 <body>
+    <%- include('../partials/header', { hideMenu: true }) %>
     <%- include('../partials/header') %>
     
     <main class="main-centrado">
         <section class="registro-contenedor">
             <h1>Registro</h1>
             
-            <form action="/register" method="POST">
+            <form action="/" method="GET">
                 <!-- Para que funcione el label flotante, el placeholder DEBE ser " " (un espacio) -->
                 
                 <div class="campo-formulario">

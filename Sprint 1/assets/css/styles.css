@@ -558,6 +558,11 @@ button[type="submit"]:active {
     padding: 15px 0;
 }
 
+.menu-categorias a i {
+    font-size: 1.8rem; /* Hace que el ícono sea más grande que el texto */
+    margin-bottom: 5px;
+}
+
 .menu-categorias ul {
     display: flex;
     justify-content: space-between;
@@ -613,11 +618,19 @@ button[type="submit"]:active {
     justify-content: flex-end;
     color: white;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    box-sizing: border-box;
-    /* Gradiente oscuro abajo para que el texto sea legible, más imagen de placeholder */
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('https://via.placeholder.com/500x250/222/fff?text=Banner+Promocional') center/cover;
+    box-sizing: border-box;  
     transition: transform 0.3s ease;
 }
+
+/* Banner de Disney/Star+ */
+.banner-disney {
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('../img/disney-plus.png') center/cover;
+}
+
+/* Banner de HBO Max */
+.banner-hbo {
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('../img/hbo-max.jpeg') center/cover;
+} 
 
 .banners article:hover {
     transform: scale(1.02);
@@ -789,3 +802,178 @@ button[type="submit"]:active {
     color: #444;
     margin-bottom: 10px;
 }   
+
+/* =========================================
+   7. MENÚ DE USUARIO FLOTANTE
+   ========================================= */
+.user-menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.avatar-trigger {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.user-menu-container:hover .avatar-trigger {
+    border-color: #1abc9c; /* Borde verde al pasar el mouse */
+}
+
+/* La tarjeta del menú desplegable */
+.user-dropdown {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 240px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border: 1px solid #e0e0e0;
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Mostrar la tarjeta al hacer hover en el contenedor */
+.user-menu-container:hover .user-dropdown {
+    display: flex;
+}
+
+/* Cabecera del Dropdown */
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+}
+
+.avatar-large {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dropdown-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Líneas separadoras */
+.user-dropdown hr {
+    margin: 0;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Enlaces del menú */
+.dropdown-links {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.dropdown-links li a {
+    display: block;
+    padding: 10px 25px;
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: background 0.2s ease;
+}
+
+.dropdown-links li a:hover {
+    background: #f5f5f5;
+}
+
+/* Footer del menú (Cambiar tema) */
+.dropdown-footer {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.dropdown-footer:hover {
+    background: #f5f5f5;
+}
+
+.icon-theme {
+    font-size: 1.2rem;
+}
+
+.dropdown-footer a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* =========================================
+   8. FOOTER (Pie de página)
+   ========================================= */
+.main-footer {
+    display: flex;
+    justify-content: space-between; /* Separa las 3 columnas */
+    align-items: center;
+    padding: 30px 40px;
+    background-color: #f5f5f5; /* Gris muy claro del diseño */
+    border-top: 1px solid #e0e0e0;
+    color: #999;
+    margin-top: 50px;
+}
+
+/* Enlaces de Redes y Apps */
+.footer-socials a, .footer-apps a {
+    color: #999;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 1.2rem; /* Tamaño de los íconos */
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover, .footer-apps a:hover {
+    color: #333; /* Se oscurecen al pasar el mouse */
+}
+
+/* Ajustes específicos para las Apps */
+.footer-apps a {
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+.footer-apps a i {
+    font-size: 1.2rem;
+}
+
+.footer-copyright p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 768px) {
+    .main-footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .footer-apps a { margin: 0 10px; }
+}
+
