@@ -16,8 +16,9 @@
             <li><a href="/products">Productos</a></li>
             <li><a href="/cart">Carrito</a></li>
             <li><a href="/checkout">Checkout</a></li>
+          
 
-            <!-- Si hideMenu es true (páginas de login/register), mostramos los botones de acceso -->
+            <!-- Si hideMenu es true, oculta el menú del avatar y en su lugar muestra los enlaces de "Login" y "Register" -->
             <% if (typeof hideMenu !== 'undefined' && hideMenu) { %>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/register">Register</a></li>
