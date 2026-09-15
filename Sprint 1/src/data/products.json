@@ -1,0 +1,15 @@
+[
+    { "id": 1, "name": "Auriculares Inalámbricos", "price": 1500, "image": "/img/prod-auriculares.jfif", "destacado": true },
+    { "id": 2, "name": "Cafetera Express", "price": 3200, "image": "/img/prod-cafetera.jpg", "destacado": false },
+    { "id": 3, "name": "Whiskey Jack Daniels", "price": 19900, "image": "/img/jack-daniels.webp", "destacado": true },
+    { "id": 4, "name": "Smart TV Samsung", "price": 45000, "image": "/img/prod-tv.webp", "destacado": true },
+    { "id": 5, "name": "Smartphone Samsung Galaxy S21", "price": 80000, "image": "/img/prod-celular.jfif", "destacado": true },
+    { "id": 6, "name": "Laptop HP Pavilion", "price": 120000, "image": "", "destacado": false },
+    { "id": 7, "name": "Volante Renault Clio", "price": 15000, "image": "/img/prod-volante.jfif", "destacado": true },
+    { "id": 8, "name": "Stereo Pioneer", "price": 25000, "image": "/img/prod-stereo.jfif", "destacado": false },
+    { "id": 9, "name": "Cámara Canon EOS", "price": 60000, "image": "/img/prod-camara.jfif", "destacado": false },
+    { "id": 10, "name": "Bicicleta Mountain Bike", "price": 30000, "image": "/img/prod-bicicleta.jpg", "destacado": true },
+    { "id": 11, "name": "1 Combo Hamburguesa", "price": 5000, "image": "/img/burguer.webp", "destacado": true },
+    { "id": 12, "name": "Coca Cola Lata 220ml x8", "price": 1520, "image": "/img/coca.webp", "destacado": true }
+    
+]

@@ -1,110 +1,65 @@
 <%- include('../partials/header') %>
 
 <!-- Importamos la fuente Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Vinculamos nuestro CSS externo -->
-    <link rel="stylesheet" href="/css/styles.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Vinculamos nuestro CSS externo -->
+<link rel="stylesheet" href="/css/styles.css">
 
 <main class="product-main">
 
-    <% if (error) { %>
-        <section class="error-not-found">
-            <h1>¡Ups! Producto no encontrado</h1>
-            <p>Parece que el artículo que buscas no existe o fue retirado de nuestro catálogo.</p>
-            <a href="/" class="btn-outline">Volver a la tienda</a>
-        </section>
+    <!-- ========================================== -->
+    <!-- ESTADO NORMAL: PRODUCTO ENCONTRADO         -->
+    <!-- ========================================== -->
+    
+    <!-- Migas de Pan (Breadcrumbs) -->
+    <nav class="breadcrumbs">
+        <a href="/">&larr; Volver al listado</a> &gt; <span>Detalle</span>
+    </nav>
 
-        <!-- BONUS 2: Productos sugeridos para no perder la venta -->
-        <section class="products-section" aria-label="Productos sugeridos">
-            <h2>Quizás te interesen estos productos</h2>
-            <div class="products-grid">
-                <article class="product-card">
-                    <a href="/product">
-                        <img src="/img/prod-auriculares.jpg" alt="Auriculares">
-                        <h3>Auriculares Inalámbricos</h3>
-                        <p class="price-points">1500 pts</p>
-                    </a>
-                </article>
-                <!-- Agrega más tarjetas aquí para que se vea como en el inicio -->
-            </div>
-        </section>
-
-    <%  } else { %>
-        <!-- ========================================== -->
-        <!-- ESTADO NORMAL: PRODUCTO ENCONTRADO         -->
-        <!-- ========================================== -->
+    <!-- Detalles del producto -->
+    <section class="product-details-layout">
         
-        <!-- Migas de Pan (Breadcrumbs) -->
-        <nav class="breadcrumbs">
-            <a href="/">&larr; Volver al listado</a> &gt; <span>Alimentos</span>
-        </nav>
-
-        <!-- Detalles del producto -->
-        <section class="product-details-layout">
-            
-            <!-- Galería de Imágenes -->
-            <div class="product-gallery">
-                <div class="galeria-miniaturas">
-                    <img src="/img/jack-daniels.webp" alt="Miniatura 1">
-                    <img src="/img/jack-daniels.webp" alt="Miniatura 2">
-                    <img src="/img/jack-daniels.webp" alt="Miniatura 3">
-                </div>
-                <div class="galeria-principal">
-                    <img src="/img/jack-daniels.webp" alt="Imagen principal del producto" class="main-image">
-                </div>
+        <!-- Galería de Imágenes -->
+        <div class="product-gallery">
+            <!-- (Opcional) Si quieres mantener miniaturas genéricas puedes dejarlas, 
+                 pero aquí ponemos la imagen principal dinámica con su fallback -->
+            <div class="galeria-principal">
+                <img src="<%= product.image && product.image.trim() !== '' ? product.image : '/img/cuadricula.webp' %>" alt="<%= product.name %>" class="main-image">
             </div>
-            
-            <!-- Info y compra -->
-            <div class="product-info">
-                 <h1>Whiskey Jack Daniels Honey 750ml</h1>
-                 <p class="price">19.900 <span>PUNTOS</span></p>
-                 <form action="/cart" method="GET">
-                     <button type="submit" class="btn-primary">Agregar al Carrito</button>
-                 </form>
-                 <div class="description">
-                     <p>Un verdaderamente fabuloso licor de whisky Jack Daniels. Está hecho con una mezcla de ricas especias y suave, miel tersa y el resultado es delicioso sobre hielo o café.</p>
-                     <p>Aroma de caramelo y roble carbonizado, un poco de flor de naranja, miel de manuka y vainilla.</p>
-                     <p>Boca: grueso y cremoso, con notas de vainilla, roble tostado, miel de nuevo, un poco de albaricoque también.</p>
-                     <p>Acabado: De buena longitud - redondeado y rico.</p>
-                     <p><i>No incluye vasos, la foto es sólo ilustrativa</i></p>
-                 </div>
-            </div>
+        </div>
         
-                <p class="price">19.900 pts</p>
-                
-                <!-- Botón agregar al carrito -->
-                <form action="/cart" method="GET">
-                    <button type="submit" class="btn-primary">Agregar al Carrito 🛒</button>
-                </form>
+        <!-- Info y compra -->
+        <div class="product-info">
+            <!-- Título y precio dinámicos -->
+            <h1><%= product.name %></h1>
+            <p class="price"><%= product.price %> <span>PUNTOS</span></p>
+             
+            <!-- ¡Formulario dinámico del carrito! Toma el ID real del producto -->
+            <form action="/cart/add/<%= product.id %>" method="POST">
+                <button type="submit" class="btn-primary">Agregar al Carrito</button>
+            </form>
+             
+            <div class="description">
+                <!-- Mostramos una descripción si existe, si no un texto genérico -->
+                <p><%= product.description ? product.description : 'Características exclusivas de este artículo de nuestro catálogo.' %></p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- BONUS 3: Productos Relacionados -->
-        <section class="products-section" aria-label="Productos similares">
-            <h2>Productos Relacionados</h2>
-            <div class="products-grid">
-                <article class="product-card">
-                    <a href="/product">
-                        <img src="/img/burguer.webp" alt="Combo Hamburguesa">
-                        <h3>1 Combo Hamburguesa</h3>
-                        <p class="price-points">5.000 pts</p>
-                    </a>
-                </article>
-                <article class="product-card">
-                    <a href="/product">
-                        <img src="/img/coca.webp" alt="Coca Cola">
-                        <h3>Coca Cola Lata 220mL x8</h3>
-                        <p class="price-points">1.520 pts</p>
-                    </a>
-                </article>
-            </div>
-        </section>
+    <!-- Sección Dinámica: Te puede interesar -->
+    <section class="listado">
+        <h2>Te puede interesar</h2>
+        
+        <div class="products-grid" style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <% suggested.forEach(item => { %>
+                <%- include('../partials/productCard', { product: item }) %>
+            <% }) %>
+        </div>
+    </section>
 
-        <!-- BONUS 4: Listado de Categorías Inferior -->
-         <%- include('../partials/categories') %>
+    <!-- BONUS 4: Listado de Categorías Inferior -->
+    <%- include('../partials/categories') %>
 
-    <% } %>
 </main>
 
 <%- include('../partials/footer') %>
