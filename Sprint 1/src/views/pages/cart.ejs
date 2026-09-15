@@ -15,71 +15,70 @@
     <%- include('../partials/header') %>
 
     <main class="cart-container">
-        <h1>Tu Carrito de Compras</h1>
-        
+    <h1>Tu Carrito de Compras</h1>
+    
+    <!-- Escenario 6: Carrito Vacío -->
+    <% if (cart.length === 0) { %>
+        <section style="text-align: center; padding: 50px;">
+            <h2>Tu carrito está vacío 🛒</h2>
+            <p>¡Parece que aún no has agregado nada!</p>
+            <br>
+            <a href="/products" class="btn-primary">Ir a la tienda</a>
+        </section>
+    <% } else { %>
         <div class="cart-layout">
-            <section class="cart-items" aria-label="Listado de productos agregados">
-                
-                <article class="cart-item">
-                    <img src="/img/prod-auriculares.jpg" alt="Auriculares Inalámbricos">
-                    <div class="item-details">
-                        <h2>Auriculares Inalámbricos</h2>
-                        <p class="item-price">1500 pts</p>
-                    </div>
-                    
-                    <div class="item-quantity">
-                        <button type="button" class="btn-qty" aria-label="Quitar una unidad">➖</button>
-                        <span class="qty-count" aria-live="polite">1</span>
-                        <button type="button" class="btn-qty" aria-label="Agregar una unidad">➕</button>
-                    </div>
-                    
-                    <div class="item-total">
-                        <p>Total: <br><strong>1500 pts</strong></p>
-                    </div>
-                </article>
-
-                <article class="cart-item">
-                    <img src="/img/prod-cafetera.jpg" alt="Cafetera Express">
-                    <div class="item-details">
-                        <h2>Cafetera Express</h2>
-                        <p class="item-price">3200 pts</p>
-                    </div>
-                    
-                    <div class="item-quantity">
-                        <button type="button" class="btn-qty" aria-label="Quitar una unidad">➖</button>
-                        <span class="qty-count" aria-live="polite">2</span>
-                        <button type="button" class="btn-qty" aria-label="Agregar una unidad">➕</button>
-                    </div>
-                    
-                    <div class="item-total">
-                        <p>Total: <br><strong>6400 pts</strong></p>
-                    </div>
-                </article>
-
+            <section class="cart-items">
+                <!-- Iteramos sobre los productos del carrito -->
+                <% cart.forEach(item => { %>
+                    <article class="cart-item">
+                        <img src="<%= item.image %>" alt="<%= item.name %>">
+                        <div class="item-details">
+                            <h2><%= item.name %></h2>
+                            <p class="item-price"><%= item.price %> pts c/u</p>
+                        </div>
+                        
+                        <div class="item-quantity">
+                            <!-- Botón Restar -->
+                            <form action="/cart/update" method="POST" style="display:inline;">
+                                <input type="hidden" name="productId" value="<%= item.id %>">
+                                <input type="hidden" name="action" value="decrease">
+                                <button type="submit" class="btn-qty">-</button>
+                            </form>
+                            
+                            <span class="qty-count"><%= item.quantity %></span>
+                            
+                            <!-- Botón Sumar -->
+                            <form action="/cart/update" method="POST" style="display:inline;">
+                                <input type="hidden" name="productId" value="<%= item.id %>">
+                                <input type="hidden" name="action" value="increase">
+                                <button type="submit" class="btn-qty">+</button>
+                            </form>
+                        </div>
+                        
+                        <div class="item-total">
+                            <p>Subtotal: <br><strong><%= item.subtotal %> pts</strong></p>
+                        </div>
+                    </article>
+                <% }) %>
             </section>
 
-            <aside class="cart-summary" aria-label="Resumen de compra">
-                
-                <form action="/cart/discount" method="POST" class="discount-form">
-                    <label for="discount-code">¿Tienes un cupón?</label>
-                    <div class="discount-input-group">
-                        <input type="text" id="discount-code" name="discountCode" placeholder="Ej: PROMO2026" aria-label="Ingresar código alfanumérico">
-                        <button type="submit" class="btn-secondary">Aplicar</button>
-                    </div>
-                </form>
-
+            <aside class="cart-summary">
                 <div class="summary-totals">
                     <p>Total a pagar:</p>
-                    <strong>7900 pts</strong>
+                    <strong><%= total %> pts</strong>
                 </div>
-
                 <div class="cart-actions">
                     <a href="/checkout" class="btn-primary">Ir a Pagar</a>
-                    <a href="/" class="btn-outline">Volver al listado</a>
+                    
+                    <!-- Botón Vaciar -->
+                    <form action="/cart/clear" method="POST" style="margin-top: 10px;">
+                        <button type="submit" class="btn-outline" style="width: 100%;">Vaciar carrito</button>
+                    </form>
                 </div>
             </aside>
         </div>
-    </main>
+    <% } %>
+</main>
 
     <%- include('../partials/footer') %>
 

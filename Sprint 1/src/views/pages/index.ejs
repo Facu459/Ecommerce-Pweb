@@ -26,42 +26,22 @@
             <section class="listado">
     <h2>Te puede interesar</h2>
     
-    <!-- 1. Tu producto específico -->
-    <article>
-        <a href="/product">
-            <img src="/img/jack-daniels.webp" alt="Whiskey Jack Daniels Honey 750ml">
-            <h4>Whiskey Jack Daniels Honey 750ml</h4>
-            <p>19.900 Puntos</p>
-        </a>
-    </article>
-
-    <!-- 2. Los 3 productos genéricos restantes para completar la fila -->
-    <% for(let i = 0; i < 3; i++) { %>
-    <article>
-        <a href="/product">
-            <img src="/img/cuadricula.webp" alt="Imagen de prueba del producto">
-            <h4>Nombre del Producto</h4>
-            <p>xxxxx Puntos</p>
-        </a>
-    </article>
-    <% } %>
+    <% suggested.forEach(product => { %>
+        <!-- Llamamos al partial pasándole los datos del producto actual -->
+        <%- include('../partials/productCard', { product: product }) %>
+    <% }) %>
 </section>
 
-                 <section class="listado">
-                    <h2>Los más pedidos</h2>
-        
-                       
-                        <% for(let i = 0; i < 8; i++) { %>
-                        <article>
-                                <a href="/product">
-                                <img src="/img/cuadricula.webp" alt="Imagen de prueba del producto">
-                                 <h4>Nombre del Producto</h4>
-                                <p>xxxxx Puntos</p>
-                               </a>
-                        </article>
-                     <% } %>
-            
-                 </section>
+                    <section class="listado" >
+                         <h2>Los más pedidos</h2>
+    
+                            <div class="products-grid" style="display: flex; gap: 20px; flex-wrap: wrap;"> <!-- O la clase que uses para tu grilla -->
+                                <% mostWanted.forEach(product => { %>
+                               <!-- Reciclamos el componente exacto de la US6 -->
+                             <%- include('../partials/productCard', { product: product }) %>
+                             <% }) %>
+                            </div>
+                    </section>
 
                   <%- include('../partials/categories') %>
 

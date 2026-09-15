@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+
+<main class="catalog-main" style="padding: 40px 20px; text-align: center;">
+    
+    <h1>Catálogo Completo</h1>
+    <p>Explora todos nuestros productos disponibles</p>
+    <br>
+
+    <!-- Grilla donde iteramos TODOS los productos de tu base de datos -->
+    <section class="products-grid" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+        
+        <% products.forEach(item => { %>
+            <!-- Reutilizamos el mismo componente que usamos en la Home -->
+            <%- include('../partials/productCard', { product: item }) %>
+        <% }) %>
+
+    </section>
+
+</main>
+
+<%- include('../partials/footer') %>
