@@ -13,7 +13,7 @@
     
     <!-- Migas de Pan (Breadcrumbs) -->
     <nav class="breadcrumbs">
-        <a href="/">&larr; Volver al listado</a> &gt; <span>Detalle</span>
+        <a href="/products">&larr; Volver al catálogo</a> &gt; <span style="text-transform: capitalize;"><%= product.categoria %></span>
     </nav>
 
     <!-- Detalles del producto -->
@@ -34,27 +34,41 @@
             <h1><%= product.name %></h1>
             <p class="price"><%= product.price %> <span>PUNTOS</span></p>
              
-            <!-- ¡Formulario dinámico del carrito! Toma el ID real del producto -->
+            <!-- ¡este formulario dinámico toma el ID real del producto -->
             <form action="/cart/add/<%= product.id %>" method="POST">
                 <button type="submit" class="btn-primary">Agregar al Carrito</button>
             </form>
              
             <div class="description">
-                <!-- Mostramos una descripción si existe, si no un texto genérico -->
+                <!-- si existe, mostramos una descripción, si no un texto genérico -->
                 <p><%= product.description ? product.description : 'Características exclusivas de este artículo de nuestro catálogo.' %></p>
             </div>
         </div>
     </section>
 
-    <!-- Sección Dinámica: Te puede interesar -->
+    <!-- Sección Dinámica: Productos relacionados -->
     <section class="listado">
-        <h2>Te puede interesar</h2>
+        <h2>Productos relacionados</h2>
         
-        <div class="products-grid" style="display: flex; gap: 20px; flex-wrap: wrap;">
-            <% suggested.forEach(item => { %>
-                <%- include('../partials/productCard', { product: item }) %>
-            <% }) %>
-        </div>
+        <!-- Evalua si hay al menos 1 producto en la lista -->
+        <% if (relatedProducts.length > 0) { %>
+            
+            <div class="products-grid" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <% relatedProducts.forEach(item => { %>
+                    <!-- se reutiliza el card estandarizado -->
+                    <%- include('../partials/productCard', { product: item }) %>
+                <% }) %>
+            </div>
+
+        <% } else { %>
+            
+            <!-- ESCENARIO 3: Mensaje amigable si no hay coincidencias -->
+            <div class="mensaje-amigable" style="padding: 30px; text-align: center; color: #666; background: #f9f9f9; border-radius: 8px; margin-top: 15px;">
+                <p>No hay productos relacionados disponibles por el momento, pero te invitamos a seguir explorando nuestro catálogo.</p>
+                <a href="/products" class="btn-secondary" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background: #ccc; text-decoration: none; color: #333; border-radius: 5px;">Ver todo el catálogo</a>
+            </div>
+
+        <% } %>
     </section>
 
     <!-- BONUS 4: Listado de Categorías Inferior -->

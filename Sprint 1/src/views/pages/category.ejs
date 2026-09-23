@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+
+<main class="catalog-main" style="padding: 40px 20px; text-align: center;">
+    
+    <!-- Mostramos el nombre de la categoría dinámicamente -->
+    <h1 style="text-transform: capitalize;">Categoría: <%= categoryName %></h1>
+    <br>
+
+    <section class="products-grid" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+        
+        <% if (products.length > 0) { %>
+            <!-- Iteramos solo los productos que pasaron el filtro -->
+            <% products.forEach(item => { %>
+                <%- include('../partials/productCard', { product: item }) %>
+            <% }) %>
+        <% } else { %>
+            <!-- Mensaje amigable si la categoría no tiene productos -->
+            <div class="mensaje-amigable" style="padding: 30px; color: #666; background: #f9f9f9; border-radius: 8px; width: 100%;">
+                <h2>¡Ups!</h2>
+                <p>Aún no tenemos productos disponibles en la categoría <b><%= categoryName %></b>.</p>
+                <a href="/products" class="btn-secondary" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: #ccc; text-decoration: none; color: #333; border-radius: 5px;">Ver todo el catálogo</a>
+            </div>
+        <% } %>
+
+    </section>
+
+</main>
+
+<%- include('../partials/footer') %>
