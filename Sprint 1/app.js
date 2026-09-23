@@ -10,6 +10,7 @@ const userRoute = require('./src/routes/userRoute');
 const productRoute = require('./src/routes/productRoute');
 const cartRoute = require('./src/routes/cartRoute');
 const checkoutRoute = require('./src/routes/checkoutRoute');
+const categoryRoute = require('./src/routes/categoryRoute');
 
 // configuracion del motor de vistas
 app.set('view engine', 'ejs');
@@ -40,6 +41,7 @@ app.use('/', userRoute);
 app.use('/', productRoute);
 app.use('/', cartRoute);
 app.use('/', checkoutRoute);
+app.use('/', categoryRoute);
 
 // --- MANEJO DE ERROR 404 ---
 // Este middleware atrapa cualquier petición que no haya coincidido con las rutas anteriores

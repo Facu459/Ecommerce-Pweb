@@ -9,18 +9,26 @@ const productController = {
         const products = getProducts();
         const productId = parseInt(req.params.id);
         
-        // 1. Buscamos el producto principal que el usuario quiere ver
+        // Buscamos el producto principal
         const product = products.find(p => p.id === productId);
 
-        // 2. Tomamos 4 productos aleatorios para sugerir abajo
-        const shuffled = [...products].sort(() => 0.5 - Math.random());
-        const suggested = shuffled.slice(0, 4);
-
         if (product) {
-            // Mandamos AMBAS variables a la vista
-            res.render('pages/product', { product, suggested });
+            // --- US8: PRODUCTOS RELACIONADOS ---
+            
+            // 1. Filtramos los que tienen la misma categoría Y que NO sean el producto actual
+            const related = products.filter(p => 
+                p.categoria === product.categoria && p.id !== product.id
+            );
+
+            // 2. Mezclamos aleatoriamente la lista filtrada
+            const shuffledRelated = related.sort(() => 0.5 - Math.random());
+
+            // 3. Cortamos hasta un máximo de 4 productos
+            const relatedProducts = shuffledRelated.slice(0, 4);
+
+            // Enviamos el producto y la nueva variable relatedProducts a la vista
+            res.render('pages/product', { product, relatedProducts });
         } else {
-            // Si el ID no existe en el JSON, mandamos al 404
             res.status(404).render('pages/404');
         }
     },
